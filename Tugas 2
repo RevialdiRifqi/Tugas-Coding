@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class BilanganPrimaChecker {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        while (true) {
+            System.out.print("Masukkan bilangan bulat positif (atau 0/negatif untuk keluar): ");
+            int angka = input.nextInt();
+            
+            if (angka <= 0) {
+                System.out.println("Terima kasih! Program keluar.");
+                break;
+            }
+            
+            if (isPrima(angka)) {
+                System.out.println(angka + " adalah bilangan prima.");
+            } else {
+                System.out.println(angka + " bukan bilangan prima.");
+            }
+        }
+        
+        input.close();
+    }
+    
+    // Fungsi untuk mengecek apakah suatu bilangan adalah bilangan prima
+    public static boolean isPrima(int angka) {
+        if (angka <= 1) {
+            return false;
+        }
+        
+        for (int i = 2; i <= Math.sqrt(angka); i++) {
+            if (angka % i == 0) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
